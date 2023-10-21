@@ -1,12 +1,13 @@
-const { sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, acosh, atanh, log2, E } = Math;
+const { sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, acosh, atanh, log2, E: e, log } = Math;
 
 let evaluate = (expression, x) => {
+    expression = expression.toLowerCase();
     expression = expression.replace(/ /g, "");
 
-    expression = unaryFormatter(expression);
-    expression = eFormatter(expression);
-    expression = arcFormatter(expression);
-    expression = powFormatter(expression);
+    if (expression.substring(0, 2) == "-x") expression.replace(/-x/, "-1x");
+    expression = expression.replace(/arc/g, 'a');
+    expression = expression.replace(/\^/g, '**');
+    expression = expression.replace(/ln/g, log)
     expression = multFormatter(expression);
 
     expression = expression.replace(/x/g, `(${x})`);
@@ -29,7 +30,7 @@ let addToTable = (step, x1, x2, x3, fnx3, err) => {
 };
 
 
-let drawFunc = (expression) => {
+let drawFunc = expression => {
     let contentsBounds = document.body.getBoundingClientRect();
     let width = 800;
     let height = 500;
@@ -56,15 +57,6 @@ let drawFunc = (expression) => {
 };
 
 
-let eFormatter = expression => expression.replace(/e/g, 'E');
-let arcFormatter = expression => expression.replace(/arc/g, 'a');
-
-let unaryFormatter = expression => {
-    if (expression.substring(0, 2) == "-x") return expression.replace(/-x/, "-1x");
-    else return expression;
-};
-
-
 let multFormatter = expression => {
     let modifiedExpression = expression[0];
     for (let i = 1; i < expression.length; i++) {
@@ -79,5 +71,3 @@ let multFormatter = expression => {
 
     return modifiedExpression;
 };
-
-let powFormatter = expression => expression.replace(/\^/g, '**');

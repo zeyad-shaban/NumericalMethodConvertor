@@ -1,4 +1,4 @@
-let dataSubmitted = e => {
+let dataSubmittedHandler = e => {
     e.preventDefault();
     document.querySelector("#itterBody").innerHTML = '';
 
@@ -9,8 +9,10 @@ let dataSubmitted = e => {
     maxItter = parseFloat(document.querySelector("#maxItter").value || maxItter);
     method = document.querySelector("#method").value;
 
-    if (method = falsePosition) xroot = falsePosition(expression, x1, x2, preErr, maxItter);
+    (expression, x1, x2, preErr, maxItter);
+    if (method == 'bisection') xroot = bisection(expression, x1, x2, preErr, maxItter)
+    if (method == 'falsePosition') xroot = falsePosition(expression, x1, x2, preErr, maxItter);
+    if (method == 'secant') secant(expression, x1, x2, preErr, maxItter)
 
     document.querySelector("#xroot").innerHTML = `Xroot = ${xroot}`;
-
 };

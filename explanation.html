@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <title>Numerical Method Convertor</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">NMC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/explanation.html">Explanation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="card mb-3" style="width: 40rem;">
+            <img src="Assets/BisectionFlowcharts.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Bisection Method</h5>
+                <p class="card-text">1. Start <br>
+                    
+            </div>
+        </div>
+
+        <div class="card mb-3" style="width: 40rem;">
+            <img src="Assets/FalsePositionFlowcharts.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">False Position Method</h5>
+                <p class="card-text">1. Start <br>
+                    
+            </div>
+        </div>
+
+        <div class="card mb-3" style="width: 40rem;">
+            <img src="Assets/SecantFlowcharts.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Secant Method</h5>
+                <p class="card-text">1. Start <br>
+                    2. Get X0, X1 And E Where Is The Stopping Criteria <br>
+                    3. Calculate F(X0) And F(X1) <br>
+                    4. Calculate X2 = (X1 * F(X1) ) * ((X1-X0) / (F(X1)-F(X0))) <br>
+                    5. Calculate |X2-X1| <br>
+                    6. IF |X2-X1| Is Not Less Than E , Then Let X0=X1 , X1=X2 <br>
+                    7. Repeat Number 4 <br>
+                    8. Repeat Number 5 <br>
+                    9. IF |X2-X1| Is Less Than E , Then X2 Is The Root Of F(X) <br>
+                    10. Stop</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <section class="">
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                Made by Ahmed Shawky, Zeyad Yousef, Ahmed, Ahmed Hesham, Adham, Omar
+            </div>
+    </footer>
+</body>
+
+</html>

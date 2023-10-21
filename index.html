@@ -10,9 +10,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-primary" data-bs-theme="dark">
+    <nav class="navbar navbar-expand bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">NMC</a>
+            <a class="navbar-brand" href="/index.html">NMC</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Explanation</a>
+                        <a class="nav-link active" aria-current="page" href="/explanation.html">Explanation</a>
                     </li>
                 </ul>
             </div>
@@ -45,7 +45,7 @@
                         <option value="bisection">Bisection</option>
                         <option value="secant">Secant</option>
                         <option value="falsePosition">False Position</option>
-                        <option value="newton">Newton</option>
+                        <!-- <option value="newton">Newton</option> -->
                     </select>
                 </div>
             </div>
@@ -87,7 +87,7 @@
             <div class="card-header" id="xroot">X Root will appear here</div>
             <div class="card-body">
                 <p class="card-text">Currently supported functions: sin, cos, tan, arcsin, arccos, arctan,
-                    sinh, cosh, tanh, arcsinh, arccosh, arctanh, log2, E</p>
+                    sinh, cosh, tanh, arcsinh, arccosh, arctanh, log2, log10, ln, e</p>
             </div>
         </div>
 
@@ -106,15 +106,21 @@
             </thead>
             <tbody id="itterBody"></tbody>
         </table>
-
-
-
-
     </div>
+
+
+    <footer class="text-center text-lg-start bg-light text-muted">
+        <section class="">
+            <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                Made by Ahmed Shawky, Zeyad Yousef, Ahmed, Ahmed Hesham, Adham, Omar
+            </div>
+    </footer>
 
     <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
     <script src="js/eventHandler.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/bisection.js"></script>
+    <script src="js/secant.js"></script>
     <script src="js/falsePosition.js"></script>
     <script src="js/main.js"></script>
 </body>

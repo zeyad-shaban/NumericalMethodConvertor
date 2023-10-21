@@ -8,7 +8,6 @@ let falsePosition = (expression, a, b, preErr, maxIttr) => {
         
         if (fnx2 - fnx1 == 0) break;
 
-
         x3 = x1 - ((x2 - x1) * fnx1 / (fnx2 - fnx1));
         let fnx3 = evaluate(expression, x3);
 

@@ -1,5 +1,5 @@
 // values for testing purpposes
-let expression = "x^3+2x^2+x-1";
+let expression = "x^3+2x^2+x-1 + E^5";
 let x1 = 0;
 let x2 = 1;
 let preErr = 0.0001;
