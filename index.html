@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <title>Numerical Methods Convertor</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">NMC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Explanation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br>
+
+    <div class="container">
+        <h1>Numerical Method Calculator</h1>
+        <br>
+        <form id="dataForm">
+            <div class="row form-outline mb-4">
+                <div class="col">
+                    <label class="form-label" for="expression">F(x)</label>
+                    <input type="text" id="expression" class="form-control" required />
+                </div>
+                <div class="col">
+                    <label class="form-label" for="method">Method</label>
+                    <select class="form-select" id="method" required>
+                        <option value="bisection">Bisection</option>
+                        <option value="secant">Secant</option>
+                        <option value="falsePosition">False Position</option>
+                        <option value="newton">Newton</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="x1">X1</label>
+                        <input type="number" id="x1" class="form-control" required />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="x2">X2</label>
+                        <input type="number" id="x2" class="form-control" required />
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="preErr">Pre Speccified Error</label>
+                        <input type="number" id="preErr" class="form-control" placeholder="0.0001" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="maxItter">Max Itteration</label>
+                        <input type="number" id="maxItter" class="form-control" placeholder="100" />
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mb-4">Calculate</button>
+        </form>
+
+        <div class="card w-75" id="xrootContainer">
+            <div class="card-header" id="xroot">X Root will appear here</div>
+            <div class="card-body">
+                <p class="card-text">Currently supported functions: sin, cos, tan, arcsin, arccos, arctan,
+                    sinh, cosh, tanh, arcsinh, arccosh, arctanh, log2, E</p>
+            </div>
+        </div>
+
+        <div id="root"></div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Step</th>
+                    <th scope="col">X1</th>
+                    <th scope="col">X2</th>
+                    <th scope="col">X3</th>
+                    <th scope="col">F(X3)</th>
+                    <th scope="col">Error</th>
+                </tr>
+            </thead>
+            <tbody id="itterBody"></tbody>
+        </table>
+
+
+
+
+    </div>
+
+    <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+    <script src="js/eventHandler.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/falsePosition.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
