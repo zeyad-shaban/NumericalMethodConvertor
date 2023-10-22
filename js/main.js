@@ -10,7 +10,7 @@ let xroot;
 
 
 let dataForm = document.querySelector("#dataForm");
-dataForm.onsubmit = dataSubmitted
+dataForm.onsubmit = dataSubmittedHandler
 
 // for testing purpose
-xroot = falsePosition(expression, x1, x2, preErr, maxItter);
+// xroot = falsePosition(expression, x1, x2, preErr, maxItter);
