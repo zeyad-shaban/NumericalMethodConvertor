@@ -1,42 +1,53 @@
-const { sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, acosh, atanh, log2, E: e, log } = Math;
+const { sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, acosh, atanh, log2, E: eu, log } = Math;
+const mathFuncs = ['sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh', 'log2', 'eu', 'log'];
 
-let evaluate = (expression, x) => {
-    expression = expression.toLowerCase();
-    expression = expression.replace(/ /g, "");
+let evaluate = (fx, x) => {
+    fx = fx.toLowerCase();
+    fx = fx.replace(/ /g, "");
 
-    if (expression.substring(0, 2) == "-x") expression.replace(/-x/, "-1x");
-    expression = expression.replace(/arc/g, 'a');
-    expression = expression.replace(/\^/g, '**');
-    expression = expression.replace(/ln/g, log)
-    expression = multFormatter(expression);
+    mathFuncs.forEach(func => {
+        let regex = new RegExp("(\\d+)" + func, "g");
+        fx = fx.replace(regex, "$1*" + func);
+    });
 
-    expression = expression.replace(/x/g, `(${x})`);
-    return eval(expression);
+    fx = fx.replace(/eu/g, eu);
+    if (fx.substring(0, 2) == "-x") fx.replace(/-x/, "-1x");
+    fx = fx.replace(/arc/g, 'a');
+    fx = fx.replace(/\^/g, '**');
+    fx = fx.replace(/ln/g, log);
+    fx = multFormatter(fx);
+
+    fx = fx.replace(/x/g, `(${x})`);
+    fx = fx.replace(/--/g, '+');
+    fx = multFormatter(fx);
+    console.log(fx);
+    return eval(fx);
 };
 
 
-let addToTable = (step, x1, x2, x3, fnx3, err) => {
+let addToTable = (step, x1, x2, x3, fnx3, err, fixedDeci = 5) => {
     let itterBody = document.querySelector("#itterBody");
     itterBody.innerHTML += `
                 <tr>
                     <th scope="row">${step}</th>
-                    <td>${x1}</td>
-                    <td>${x2}</td>
-                    <td>${x3}</td>
-                    <td>${fnx3}</td>
-                    <td>${err}</td>
+                    <td>${x1.toFixed(fixedDeci)}</td>
+                    <td>${x2.toFixed(fixedDeci)}</td>
+                    <td>${x3.toFixed(fixedDeci)}</td>
+                    <td>${fnx3.toFixed(fixedDeci)}</td>
+                    <td>${err.toFixed(fixedDeci)}</td>
                 </tr>   
             `;
 };
 
 
-let drawFunc = expression => {
+let drawFunc = fx => {
     let contentsBounds = document.body.getBoundingClientRect();
     let width = 800;
     let height = 500;
     let ratio = contentsBounds.width / width;
     width *= ratio / 2;
     height *= ratio / 2;
+
 
     functionPlot({
         target: "#root",
@@ -46,25 +57,27 @@ let drawFunc = expression => {
         grid: true,
         data: [
             {
-                fn: expression.replace(/ e/g, ' exp'),
+                fn: fx.replace(/eu/g, eu), 
                 // derivative: {
                 //     fn: "e^2",
                 //     updateOnMouseMove: true
                 // }
+                graphType: 'polyline'
             }
         ]
     });
 };
 
 
-let multFormatter = expression => {
-    let modifiedExpression = expression[0];
-    for (let i = 1; i < expression.length; i++) {
-        let letter = expression[i];
-        let prevLetter = expression[i - 1];
+let multFormatter = fx => {
+    let modifiedExpression = fx[0];
+    for (let i = 1; i < fx.length; i++) {
+        let letter = fx[i];
+        let prevLetter = fx[i - 1];
 
         if (letter == 'x' && (!isNaN(parseFloat(prevLetter)) && isFinite(prevLetter) || prevLetter == ')'))
-            modifiedExpression += '*x';
+            modifiedExpression += `*x`;
+        else if (letter == '(' && prevLetter == ')') modifiedExpression += '*(';
         else
             modifiedExpression += letter;
     }

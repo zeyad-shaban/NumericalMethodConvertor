@@ -1,10 +1,9 @@
-// values for testing purpposes
-let expression = "x^3+2x^2+x-1 + E^5";
+let expression = "cos(x) + 2sin(x) + x^2"
 let x1 = 0;
-let x2 = 1;
-let preErr = 0.0001;
+let x2 = -0.1;
+let preErr = 0.001;
 let maxItter = 100;
-let method = "bisection";
+let method = "secant";
 let xroot;
 
 
@@ -14,3 +13,5 @@ dataForm.onsubmit = dataSubmittedHandler
 
 // for testing purpose
 // xroot = falsePosition(expression, x1, x2, preErr, maxItter);
+// xroot = secant(expression, x1, x2, preErr, maxItter);
+// xroot = bisection(expression, x1, x2, preErr, maxItter)
