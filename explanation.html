@@ -31,27 +31,34 @@
     <div class="container">
 
         <div class="card mb-3" style="width: 40rem;">
-            <img src="Assets/BisectionFlowcharts.png" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">Bisection Method</h5>
-                <p class="card-text">1. Start <br>
-
+                <img src="Assets/BisectionFlowchart.png" class="card-img-top" alt="...">
+                <p class="card-text">1. Start<br>
+                    not implemented cuz dev lazy
             </div>
         </div>
 
         <div class="card mb-3" style="width: 40rem;">
-            <img src="Assets/FalsePositionFlowcharts.png" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">False Position Method</h5>
-                <p class="card-text">1. Start <br>
-
+                <img src="Assets/FalsePositionFlowchart.png" class="card-img-top" alt="...">
+                <p class="card-text">1. Start<br>
+                    2. Get X1, X2, and E which is error level<br>
+                    3. Calculate f(X1), and f(X2)<br>
+                    4. Calculate X3 where: X3 = X1 - ( ( (X2 – X1) * f(X1) ) ) / ( (f(X2) - f(X1) ) )<br>
+                    5. Calculate |X1-X3|
+                    6. If |X1-X3| is more than E, check:<br>
+                    &nbsp;&nbsp;If f(X3) * f(X1) is less than 0, let X2 = X3. Else let X1 = X3<br>
+                    &nbsp;&nbsp;Else if |X1-X3| is less then E, stop<br>
+                    7. Repeat steps 3, 4, 5, and 6</p>
             </div>
         </div>
 
         <div class="card mb-3" style="width: 40rem;">
             <div class="card-body">
                 <h5 class="card-title">Secant Method</h5>
-                <img src="Assets/SecantFlowcharts.png" class="card-img-top" alt="...">
+                <img src="Assets/SecantFlowchart.png" class="card-img-top" alt="...">
                 <p class="card-text">1. Start <br>
                     2. Get X0, X1 And E Where Is The Stopping Criteria <br>
                     3. Calculate F(X0) And F(X1) <br>
@@ -70,7 +77,7 @@
     <footer class="text-center text-lg-start bg-light text-muted">
         <section class="">
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                Made by Ahmed Shawky, Zeyad Yousef, Ahmed, Ahmed Hesham, Adham, Omar
+                Made by: Ahmed Shawky, Zeyad Yousef, Ahmed Ayman, Ahmed Hesham, Adham Tamer, Omar A. El Nasser
             </div>
     </footer>
 </body>
