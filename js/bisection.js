@@ -3,26 +3,31 @@ let bisection = (expression, a, b, preErr, maxIttr) => {
     let right = b;
     let mid = (left + right) / 2;
 
-    let epsilon_S = preErr;
-
-    const k = Math.log2((right - left) / epsilon_S);
-    const maxIttrCeil = Math.ceil(k);
+    let epsilon_S = 1;
 
     let f_l = evaluate(expression, left);
     let f_r = evaluate(expression, right);
 
-    if (f_l * f_r >= 0) return "X ROOT NOT BETWEEN";
+    if (f_l * f_r >= 0) return "ROOT NOT BETWEEN";
 
-    let f_mid = evaluate(expression, mid);
-
-    for (let i = 0; i < maxIttrCeil; i++) {
+    let i = 0;
+    do {
         mid = (left + right) / 2;
-        f_mid = evaluate(expression, mid);
-        if (f_l * f_mid < 0) right = mid;
-        else if (f_mid * f_l > 0) left = mid;
-        addToTable(i + 1, left, right, mid, f_mid, epsilon_S);
-    }
+        let f_mid = evaluate(expression, mid);
 
-    drawFunc(expression);
+        epsilon_S = Math.abs((left - right) / 2);
+        addToTable(i + 1, left, right, mid, f_mid, epsilon_S);
+
+        if (f_l * f_mid < 0) {
+            right = mid;
+            f_r = f_mid;
+        } else {
+            left = mid;
+            f_l = f_mid;
+        }
+
+        i++;
+    } while (epsilon_S > preErr && i < maxIttr);
+
     return mid;
 };

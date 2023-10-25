@@ -32,8 +32,9 @@
     <br>
 
     <div class="container">
-        <h1>Numerical Method Calculator</h1>
+        <h1>Numerical Methods Calculator</h1>
         <br>
+
         <form id="dataForm">
             <div class="row form-outline mb-4">
                 <label class="form-label" for="expression">F(x)</label>
@@ -68,13 +69,13 @@
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="preErr">Pre Speccified Error</label>
-                        <input type="" id="preErr" class="form-control" placeholder="0.0001" step="0.000000001" />
+                        <input type="" id="preErr" class="form-control" placeholder="0.0001" step="0.000000001" min=0 />
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-outline">
                         <label class="form-label" for="maxItter">Max Itteration</label>
-                        <input type="number" id="maxItter" class="form-control" placeholder="100" />
+                        <input type="number" id="maxItter" class="form-control" placeholder="100" min="1" />
                     </div>
                 </div>
             </div>
@@ -82,12 +83,16 @@
             <button type="submit" class="btn btn-primary btn-block mb-4">Calculate</button>
         </form>
 
+        <div class="alert alert-danger d-none" role="alert" id="errHolder"></div>
+
         <div class="card w-75" id="xrootContainer">
             <div class="card-header" id="xroot">X Root will appear here</div>
             <div class="card-body">
-                <p class="card-text">Currently supported functions: eu (euler constant), sin, cos, tan, arcsin, arccos,
-                    arctan,
-                    sinh, cosh, tanh, arcsinh, arccosh, arctanh, log2, log10, ln</p>
+                <p class="card-text">Trig functions use radians, to use degrees: <s>cos(5)</s> cos(5 * (180/pi))</p>
+                <p class="card-text">Supported functions: sin, cos, tan, arcsin, arccos, arctan, sinh, cosh, tanh, arcsinh,
+                    arccosh, arctanh, log2, log10, ln, e, pi</p>
+                <p class="card-text">2^3x translates to 2^3 * x, make sure to type 2^(3x)</p>
+                <p class="card-text"><s>cosx</s> cos(x)</p>
             </div>
         </div>
 
@@ -116,7 +121,6 @@
     </footer>
 
     <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
-    <script src="js/eventHandler.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/bisection.js"></script>
     <script src="js/secant.js"></script>

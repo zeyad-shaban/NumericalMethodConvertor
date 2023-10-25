@@ -1,29 +1,12 @@
-const { sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, acosh, atanh, log2, E: eu, log } = Math;
-const mathFuncs = ['sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh', 'log2', 'eu', 'log'];
+const { sin, cos, tan, asin, acos, atan, sinh, cosh, tanh, asinh, acosh, atanh, log2, log10, log, PI: pi } = Math;
+const mathFuncs = ['sin', 'cos', 'tan', 'asin', 'acos', 'atan', 'sinh', 'cosh', 'tanh', 'asinh', 'acosh', 'atanh', 'log2', 'log10', 'log', 'pi'];
 
 let evaluate = (fx, x) => {
-    fx = fx.toLowerCase();
-    fx = fx.replace(/ /g, "");
-
-    mathFuncs.forEach(func => {
-        let regex = new RegExp("(\\d+)" + func, "g");
-        fx = fx.replace(regex, "$1*" + func);
-    });
-
-    fx = fx.replace(/eu/g, eu);
-    if (fx.substring(0, 2) == "-x") fx.replace(/-x/, "-1x");
-    fx = fx.replace(/arc/g, 'a');
-    fx = fx.replace(/\^/g, '**');
-    fx = fx.replace(/ln/g, log);
-    fx = multFormatter(fx);
-
     fx = fx.replace(/x/g, `(${x})`);
-    fx = fx.replace(/--/g, '+');
     fx = multFormatter(fx);
-    console.log(fx);
+
     return eval(fx);
 };
-
 
 let addToTable = (step, x1, x2, x3, fnx3, err, fixedDeci = 5) => {
     let itterBody = document.querySelector("#itterBody");
@@ -38,7 +21,6 @@ let addToTable = (step, x1, x2, x3, fnx3, err, fixedDeci = 5) => {
                 </tr>   
             `;
 };
-
 
 let drawFunc = fx => {
     let contentsBounds = document.body.getBoundingClientRect();
@@ -57,7 +39,7 @@ let drawFunc = fx => {
         grid: true,
         data: [
             {
-                fn: fx.replace(/eu/g, eu), 
+                fn: fx,
                 // derivative: {
                 //     fn: "e^2",
                 //     updateOnMouseMove: true
@@ -66,6 +48,25 @@ let drawFunc = fx => {
             }
         ]
     });
+};
+
+
+let formatExpression = fx => {
+    fx = fx.toLowerCase();
+    fx = fx.replace(/(\d)e/g, `$1*${Math.E}`).replace(/ /g, "").replace(/e/g, Math.E);
+    fx = fx.replace(/(\d)pi/g, `$1*${Math.PI}`).replace(/pi/g, Math.PI);
+
+    mathFuncs.forEach(func => {
+        let regex = new RegExp("(\\d+)" + func, "g");
+        fx = fx.replace(regex, "$1*" + func);
+    });
+    if (fx.substring(0, 2) == "-x") fx.replace(/-x/, "-1x");
+
+    fx = fx.replace(/arc/g, 'a').replace(/\^/g, '**').replace(/ln/g, "log");
+    fx = multFormatter(fx);
+    fx = fx.replace(/--/g, '+');
+
+    return fx;
 };
 
 
