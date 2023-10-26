@@ -52,7 +52,7 @@ let drawFunc = fx => {
 
 
 let formatExpression = fx => {
-    fx = fx.toLowerCase();
+    fx = fx.toLowerCase().replace(/ /g, "");
     fx = fx.replace(/(\d)e/g, `$1*${Math.E}`).replace(/ /g, "").replace(/e/g, Math.E);
     fx = fx.replace(/(\d)pi/g, `$1*${Math.PI}`).replace(/pi/g, Math.PI);
 
