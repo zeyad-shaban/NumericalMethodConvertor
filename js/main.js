@@ -21,7 +21,6 @@ document.querySelector("#dataForm").onsubmit = e => {
 
 
     expression = document.querySelector("#expression").value;
-    let formattedExpression = formatExpression(expression);
     x1 = parseFloat(document.querySelector("#x1").value);
     x2 = parseFloat(document.querySelector("#x2").value);
     preErr = parseFloat(document.querySelector("#preErr").value || preErr);
@@ -29,9 +28,9 @@ document.querySelector("#dataForm").onsubmit = e => {
     method = document.querySelector("#method").value;
 
     try {
-        if (method == 'bisection') xroot = bisection(formattedExpression, x1, x2, preErr, maxItter);
-        if (method == 'falsePosition') xroot = falsePosition(formattedExpression, x1, x2, preErr, maxItter);
-        if (method == 'secant') xroot = secant(formattedExpression, x1, x2, preErr, maxItter);
+        if (method == 'bisection') xroot = bisection(expression, x1, x2, preErr, maxItter);
+        if (method == 'falsePosition') xroot = falsePosition(expression, x1, x2, preErr, maxItter);
+        if (method == 'secant') xroot = secant(expression, x1, x2, preErr, maxItter);
 
         drawFunc(expression.toLowerCase().replace(/e/g, Math.E));
     } catch (error) {
@@ -42,6 +41,3 @@ document.querySelector("#dataForm").onsubmit = e => {
     if (isNaN(parseFloat(xroot))) alertErr(xroot);
     else document.querySelector("#xroot").innerHTML = `Xroot = ${xroot}`;
 };
-
-// for testing purpose
-// xroot = secant(formatExpression(expression), x1, x2, preErr, maxItter);

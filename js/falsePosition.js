@@ -4,8 +4,8 @@ let falsePosition = (fx, a, b, preErr, maxIttr) => {
     let i = 0;
 
     do {
-        let fnx1 = evaluate(fx, x1);
-        let fnx2 = evaluate(fx, x2);
+        let fnx1 = math.evaluate(fx, {x: x1});
+        let fnx2 = math.evaluate(fx, {x: x2});
 
         if (i == 0 && fnx1 * fnx2 >= 0) return "ROOT NOT BETWEEN";
 
@@ -13,7 +13,7 @@ let falsePosition = (fx, a, b, preErr, maxIttr) => {
 
         prevX3 = x3;
         x3 = x1 - ((x2 - x1) * fnx1 / (fnx2 - fnx1));
-        let fnx3 = evaluate(fx, x3);
+        let fnx3 = math.evaluate(fx, {x: x3});
 
         if (fnx3 * fnx1 < 0) x2 = x3;
         else if (fnx3 * fnx2 < 0) x1 = x3;
