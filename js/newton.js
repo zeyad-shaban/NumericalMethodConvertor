@@ -11,7 +11,7 @@ let newton = (expression, a, b, preErr, maxIttr) => {
         xnew = x - fx / d_fx;
 
         err = Math.abs((xnew - x) / xnew);
-        addToTable(i + 1, x, xnew, xnew, fx, err); // needs work
+        addToTable(i + 1, x, b, xnew, fx, err); // needs work
         x = xnew;
         i++;
     } while (err > preErr && i < maxIttr);

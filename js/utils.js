@@ -33,17 +33,15 @@ let drawFunc = fx => {
         data: [
             {
                 fn: fx,
-                // derivative: {
-                //     fn: "e^2",
-                //     updateOnMouseMove: true
-                // }
+                derivative: {
+                    fn: math.derivative(fx, "x").toString(),
+                    updateOnMouseMove: true
+                },
                 graphType: 'polyline'
             }
         ]
     });
 };
-
-
 
 let multFormatter = fx => {
     let modifiedExpression = fx[0];

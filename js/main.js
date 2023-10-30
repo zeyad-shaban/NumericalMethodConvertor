@@ -34,9 +34,9 @@ document.querySelector("#dataForm").onsubmit = e => {
         if (method == 'newton') xroot = newton(expression, x1, x2, preErr, maxItter);
 
         drawFunc(expression.toLowerCase().replace(/e/g, Math.E));
-    } catch (error) {
-        console.log(error);
-        return alertErr("Invalid Syntax for F(x)");
+    } catch (err) {
+        console.error(err);
+        return alertErr(`Invalid Fx: ${err.message}`);
     }
 
     if (isNaN(parseFloat(xroot))) alertErr(xroot);
