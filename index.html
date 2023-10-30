@@ -43,8 +43,9 @@
                 <label class="form-label" for="method">Method</label>
                 <select class="form-select" id="method" required>
                     <option value="bisection">Bisection</option>
-                    <option value="secant">Secant</option>
                     <option value="falsePosition">False Position</option>
+                    <option value="secant">Secant</option>
+                    <option value="newton">Newton Ruphson</option>
                     <!-- <option value="newton">Newton</option> -->
                 </select>
             </div>
@@ -118,6 +119,7 @@
     <script src="lib/js/mathjs.js "></script>
     <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/newton.js"></script>
     <script src="js/bisection.js"></script>
     <script src="js/secant.js"></script>
     <script src="js/falsePosition.js"></script>

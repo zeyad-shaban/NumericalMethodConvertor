@@ -1,6 +1,6 @@
-let expression = "x^3 - x^2 + x - 1";
+let expression = "x^3";
 let x1 = -1;
-let x2 = 5;
+let x2 = 2;
 let preErr = 0.0001;
 let maxItter = 100;
 let method = "bisection";
@@ -31,6 +31,7 @@ document.querySelector("#dataForm").onsubmit = e => {
         if (method == 'bisection') xroot = bisection(expression, x1, x2, preErr, maxItter);
         if (method == 'falsePosition') xroot = falsePosition(expression, x1, x2, preErr, maxItter);
         if (method == 'secant') xroot = secant(expression, x1, x2, preErr, maxItter);
+        if (method == 'newton') xroot = newton(expression, x1, x2, preErr, maxItter);
 
         drawFunc(expression.toLowerCase().replace(/e/g, Math.E));
     } catch (error) {
@@ -41,3 +42,5 @@ document.querySelector("#dataForm").onsubmit = e => {
     if (isNaN(parseFloat(xroot))) alertErr(xroot);
     else document.querySelector("#xroot").innerHTML = `Xroot = ${xroot}`;
 };
+
+newton(expression, x1, x2, preErr, maxItter)
