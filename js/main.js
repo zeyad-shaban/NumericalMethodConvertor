@@ -42,5 +42,3 @@ document.querySelector("#dataForm").onsubmit = e => {
     if (isNaN(parseFloat(xroot))) alertErr(xroot);
     else document.querySelector("#xroot").innerHTML = `Xroot = ${xroot}`;
 };
-
-newton(expression, x1, x2, preErr, maxItter)
