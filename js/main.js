@@ -1,5 +1,5 @@
-let expression = "x^3";
-let x1 = -1;
+let expression = "5x+log(x, e)-10000";
+let x1 = 1;
 let x2 = 2;
 let preErr = 0.0001;
 let maxItter = 100;
@@ -40,5 +40,7 @@ document.querySelector("#dataForm").onsubmit = e => {
     }
 
     if (isNaN(parseFloat(xroot))) alertErr(xroot);
-    else document.querySelector("#xroot").innerHTML = `Xroot = ${xroot}`;
+    else document.querySelector("#xroot").innerHTML = `Xroot = ${xroot.toFixed(5)}`;
 };
+
+newton(expression, x1, x2, 0.001, maxItter)
