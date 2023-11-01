@@ -1,6 +1,6 @@
-let expression = "5x+log(x, e)-10000";
-let x1 = 1;
-let x2 = 2;
+let expression = "x^4";
+let x1 = 0;
+let x2 = 0;
 let preErr = 0.0001;
 let maxItter = 100;
 let method = "bisection";
@@ -22,7 +22,7 @@ document.querySelector("#dataForm").onsubmit = e => {
 
     expression = document.querySelector("#expression").value;
     x1 = parseFloat(document.querySelector("#x1").value);
-    x2 = parseFloat(document.querySelector("#x2").value);
+    x2 = parseFloat(document.querySelector("#x2").value || x2);
     preErr = parseFloat(document.querySelector("#preErr").value || preErr);
     maxItter = parseFloat(document.querySelector("#maxItter").value || maxItter);
     method = document.querySelector("#method").value;
@@ -43,4 +43,5 @@ document.querySelector("#dataForm").onsubmit = e => {
     else document.querySelector("#xroot").innerHTML = `Xroot = ${xroot.toFixed(5)}`;
 };
 
-newton(expression, x1, x2, 0.001, maxItter)
+// console.log(newton(expression, x1, x2, 0.001, maxItter))
+// drawFunc(expression);
