@@ -52,6 +52,25 @@
 
         <div class="card mb-3" style="width: 40rem;">
             <div class="card-body">
+                <h5 class="card-title">Bisection Method</h5>
+                <img src="Assets/BisectionFlowchart.png" class="card-img-top" alt="...">
+                <p class="card-text">1.Start <br>
+                    2.Get XL and XU from interval where F(XL) multiplied by F(XU) is less than 0 (Results have opposing
+                    signs) . <br>
+                    3.Estimate the root Xm = (X(L)+X(U))/2 <br>
+                    4.Check If <br>
+                    &nbsp;&nbsp;F(Xm) * F(XL) < 0 then the interval will be from [XL,Xm] <br>
+                        &nbsp;&nbsp;else If F(Xm).F(XL)>0 then the interval will be
+                        from [Xm,Xu] <br>
+                        5.Calculate the percentage error by Ea = (X(L)-X(U))/2 <br>
+                        6.Repeat Steps 3 and 4 and 5 until the number of iterations is complete or you achieve the
+                        satisfied percentage error (Ea). <br>
+                        7. Return Root <br>
+            </div>
+        </div>
+
+        <div class="card mb-3" style="width: 40rem;">
+            <div class="card-body">
                 <h5 class="card-title">Secant Method</h5>
                 <img src="Assets/SecantFlowchart.png" class="card-img-top" alt="...">
                 <p class="card-text">1. Start <br>
@@ -69,22 +88,24 @@
 
         <div class="card mb-3" style="width: 40rem;">
             <div class="card-body">
-                <h5 class="card-title">Bisection Method</h5>
-                <img src="Assets/BisectionFlowchart.png" class="card-img-top" alt="...">
-                <p class="card-text">1.Start <br>
-                    2.Get XL and XU from interval where F(XL) multiplied by F(XU) is less than 0 (Results have opposing
-                    signs) . <br>
-                    3.Estimate the root Xm = (X(L)+X(U))/2 <br>
-                    4.Check If <br>
-                    &nbsp;&nbsp;F(Xm) * F(XL) < 0 then the interval will be from [XL,Xm] <br>
-                    &nbsp;&nbsp;else If F(Xm).F(XL)>0 then the interval will be
-                        from [Xm,Xu] <br>
-                        5.Calculate the percentage error by Ea = (X(L)-X(U))/2 <br>
-                        6.Repeat Steps 3 and 4 and 5 until the number of iterations is complete or you achieve the
-                        satisfied percentage error (Ea). <br>
-                        7. Return Root <br>
+                <h5 class="card-title">Newton-Raphson Method</h5>
+                <img src="Assets/NewtonFlowChart.jpeg" class="card-img-top" alt="...">
+                <p class="card-text">
+                    1. Start <br>
+                    2. Get X0, pre specified error <br>
+                    3. Calculate F(X0) And F'(X0) <br>
+                    4. Calculate X1 = X0 - (F(X0)/F'(X0)) <br>
+                    5. Calculate |X1-X0| <br>
+                    6. IF |X1-X0| Is Not Less Than E , Then Let X0=X1 <br>
+                    7. Repeat Number 4 <br>
+                    8. Repeat Number 5 <br>
+                    9. IF |X1-X0| Is Less Than E , Then X1 Is The Root Of F(X) <br>
+                    10. Stop
+                </p>
             </div>
         </div>
+
+
 
     </div>
 

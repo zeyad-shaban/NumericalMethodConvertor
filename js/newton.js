@@ -13,7 +13,7 @@ let newton = (expression, a, b, preErr, maxIttr) => {
         xnew = x - fx / d_fx;
 
         err = Math.abs(xnew - x);
-        addToTable(i + 1, x, b, xnew, fx, err); // needs work
+        addToTable(i + 1, x, b, xnew, fx, err);
         x = xnew;
 
         if (allRoots.includes(x)) return "Cycle Detected";
